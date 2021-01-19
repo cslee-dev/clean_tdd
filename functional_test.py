@@ -5,6 +5,8 @@ import unittest
 class NewVisitorTest(unittest.TestCase):
     def setUp(self) -> None:
         self.browser = webdriver.Chrome('/usr/local/bin/chromedriver')
+        # 암묵적 대기 기능, 로딩으로 인한 오차를 없애기 위해 셀레니움 권장 코드
+        self.browser.implicitly_wait(3)
 
     def tearDown(self) -> None:
         self.browser.quit()
